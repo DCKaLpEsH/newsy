@@ -9,8 +9,9 @@ class ArticlesRepository {
     return response;
   }
 
-  Future<ArticlesResponse> getTopHeadlines(String query) async {
-    final response = articles.getTopHeadlines();
-    return response;
+  Future<List<Articles>> getTopHeadlines([String? category]) async {
+    final response = await articles.getTopHeadlines(category ?? "");
+    print(response.totalResults);
+    return response.articles!;
   }
 }

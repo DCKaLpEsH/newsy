@@ -17,6 +17,7 @@ class NewsyState extends State<Newsy> {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: () => MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           textTheme: ThemeText.appTextTheme(),
           scaffoldBackgroundColor: AppColors.scaffoldBg,
@@ -25,7 +26,7 @@ class NewsyState extends State<Newsy> {
           ),
           appBarTheme: const AppBarTheme(
             iconTheme: IconThemeData(
-              color: AppColors.blackPrimary,
+              color: AppColors.greyPrimary,
             ),
             backgroundColor: Colors.transparent,
             elevation: 0,

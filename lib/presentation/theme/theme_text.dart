@@ -9,18 +9,33 @@ class ThemeText {
   static TextTheme appTextTheme() => GoogleFonts.sourceSansProTextTheme(
         TextTheme(
           headline1: _whiteHeadline1,
+          headline3: _whiteHeadline3,
+          headline4: _blackHeadline4,
           headline5: _greyHeadline5,
           headline6: _blackHeadline6,
           bodyText1: _blackBodyText1,
+          bodyText2: _greyBodyText2,
           subtitle1: _greySubtitle1,
           subtitle2: _whiteSubtitle2,
           caption: _greyCaption,
         ),
       );
 
+  static TextStyle? get _greyBodyText2 => TextStyle(
+        color: AppColors.greyDark,
+        fontSize: 16.sp,
+        fontWeight: FontWeight.normal,
+      );
+
   static TextStyle? get _blackBodyText1 => TextStyle(
         color: AppColors.blackPrimary,
         fontSize: 16.sp,
+        fontWeight: FontWeight.bold,
+      );
+
+  static TextStyle? get _whiteHeadline3 => TextStyle(
+        color: Colors.white,
+        fontSize: 20.sp,
         fontWeight: FontWeight.bold,
       );
 
@@ -34,6 +49,12 @@ class ThemeText {
         fontSize: 16.sp,
         fontWeight: FontWeight.w900,
         color: AppColors.greyPrimary,
+      );
+
+  static TextStyle? get _blackHeadline4 => TextStyle(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w900,
+        color: Color.fromARGB(255, 21, 28, 68),
       );
 
   static TextStyle? get _whiteHeadline1 => TextStyle(

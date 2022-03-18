@@ -15,6 +15,7 @@ class CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(
           horizontal: 8.w,

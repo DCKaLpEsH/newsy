@@ -7,8 +7,10 @@ class NewsCard2 extends StatelessWidget {
   const NewsCard2({
     Key? key,
     required this.title,
+    required this.imageUrl,
   }) : super(key: key);
   final String title;
+  final String? imageUrl;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,12 +33,20 @@ class NewsCard2 extends StatelessWidget {
               topRight: Radius.circular(12),
               topLeft: Radius.circular(12),
             ),
-            child: Image.asset(
-              "assets/pngs/carousel_1.png",
-              height: 192.h,
-              width: 336.w,
-              fit: BoxFit.cover,
-            ),
+            child: imageUrl == null
+                ? SizedBox(
+                    height: 192.h,
+                    child: Placeholder(
+                      fallbackWidth: 272.h,
+                      fallbackHeight: 192.w,
+                    ),
+                  )
+                : Image.network(
+                    imageUrl!,
+                    height: 192.h,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
           ),
           SizedBox(
             height: 16.h,
@@ -46,19 +56,23 @@ class NewsCard2 extends StatelessWidget {
               left: 16.w,
               right: 46.w,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: Text(
-                    title,
-                    style: Theme.of(context).textTheme.bodyText1,
+            child: Flexible(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Text(
+                      title,
+                      style: Theme.of(context).textTheme.bodyText1,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
                   ),
-                ),
-                SvgPicture.asset(
-                  "assets/svgs/bookmark.svg",
-                ),
-              ],
+                  SvgPicture.asset(
+                    "assets/svgs/bookmark.svg",
+                  ),
+                ],
+              ),
             ),
           )
         ],
